@@ -9,19 +9,62 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 body {
-    background-color: #FFEBCD;
+    background-color: #02a9f7;
     font-family: 'Lato', sans-serif;
+    padding: 70px;
+    font: 100%;
+}
+
+
+#teste-border {
+    outline: 1px solid red;
+    /* id="teste-border"*/
+}
+
+/**********************************************************/
+/** HEADER CSS ********************************************/
+/**********************************************************/
+
+header {
+    text-transform: uppercase;
+}
+
+header nav {
+    background-color: #01303f;
+}
+
+header a{
+    color: #d4f0fc;
+}
+
+header .icon-bar {
+  color: #d4f0fc;
+  border-color: #d4f0fc;
+  background-color: #d4f0fc;
+}
+header nav ul li.active {
+    border-bottom: 3px solid #d4f0fc;
+}
+
+/**********************************************************/
+/** FOOTER CSS ********************************************/
+/**********************************************************/
+
+footer {
+    color: #d4f0fc;
+}
+
+footer nav {
+    background-color: #01303f;
+}
+
+footer p {
+    margin: 0;
+    text-align: center;
 }
 
 /* CSS for About Me page */
 div.row > div > img {
     border-radius: 100%;
     width: 250px;
-}
-
-div.row > div > p {
-    /*border: 1px solid red;*/
-    font-size: 1.2em;
-    padding: 10px;
-    text-align: justify;
 }

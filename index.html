@@ -9,6 +9,16 @@
         <link rel="stylesheet" href="./Scripts/lib/bootstrap/dist/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="./Scripts/lib/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="./Content/app.css">
+    <!--Script from 3wSchools to help load html from other html files-->
+    <script src="https://www.w3schools.com/lib/w3data.js"></script>
+    <!--<script>
+        function show_Pages(show, hidden1, hidden2) {
+        document.getElementById("show").style.display = "block";
+        document.getElementById("hidden1").style.display = "none";
+        document.getElementById("hidden2").style.display = "none";
+        return false;
+    }
+    </script>-->
     </head>
     <body>
         <header>
@@ -30,9 +40,9 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="index.html"><i class="fa fa-user fa-lg"></i> About Me </a></li>
-                                <li><a href="contact.html"><i class="fa fa-envelope fa-lg"></i> Contact</a></li>
-                                <li><a href="projects.html"><i class="fa fa-briefcase fa-lg"></i> Projects</a></li>
+                                <li class="active"><a href="#" onclick="return show_Pages('pageAbout', 'pageProjects', 'pageContact');"><i class="fa fa-user fa-lg"></i> About Me </a></li>
+                                <li><a href="#" onclick="return show_Pages('pageProjects', 'pageAbout', 'pageContact');"><i class="fa fa-briefcase fa-lg"></i> Projects</a></li>
+                                <li><a href="#" onclick="return show_Pages('pageContact', 'pageProjects', 'pageAbout');"><i class="fa fa-envelope fa-lg"></i> Contact</a></li>
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </div>
@@ -41,6 +51,9 @@
         </header><!-- /header -->
 
         <!--Main Content-->
+        <div w3-include-html="about.html" id="pageAbout" class="col-md-8 col-md-offset-2"></div> 
+        <div w3-include-html="projects.html" id="pageProjects" class="col-md-8 col-md-offset-2"></div>
+        <div w3-include-html="contact.html" id="pageContact" class="col-md-8 col-md-offset-2"></div>
         <!-- /main content -->
 
         <!--Footer Section-->
@@ -75,5 +88,7 @@
     <script src="./Scripts/lib/jquery/dist/jquery.min.js"></script>
     <script src="./Scripts/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="./Scripts/app.js"></script>
+    <!--Function to help include html from other files into this one-->
+    <script>w3IncludeHTML();</script>
     </body>
 </html>

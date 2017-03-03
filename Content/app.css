@@ -42,7 +42,7 @@ header .icon-bar {
   border-color: #d4f0fc;
   background-color: #d4f0fc;
 }
-header nav ul li.active {
+header nav ul li.active, li:hover {
     border-bottom: 3px solid #d4f0fc;
 }
 
@@ -62,6 +62,18 @@ footer p {
     margin: 0;
     text-align: center;
 }
+
+/**********************************************************/
+/** CSS TO MANAGE THE PAGES INTO INDEX.HTML ***************/
+/**********************************************************/
+
+#pageAbout {
+    display: block;
+}
+
+#pageProjects, #pageContact {
+    display: none;
+} 
 
 /* CSS for About Me page */
 div.row > div > img {

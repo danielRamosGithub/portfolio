@@ -78,7 +78,7 @@ footer p {
 } 
 
 /**********************************************************/
-/** ABOUT ME CSS ********************************************/
+/** ABOUT ME | PROJECTS CSS *******************************/
 /**********************************************************/
 
 div.row > div > figure > img {
@@ -111,4 +111,13 @@ div.row > h1 {
 
 i.fa-chevron-right {
     color: #d54a50;
+}
+
+#pageProjects {
+    margin-bottom: 70px;
+}
+
+#pageProjects img {
+    min-height: 250px;
+    max-height: 250px;
 }

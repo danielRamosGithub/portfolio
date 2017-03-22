@@ -1,7 +1,7 @@
 /*
  * App.css
  * Author: Daniel Costa Ramos - 200354269
- * Web	site: Mini-Portfolio
+ * Web	site: Portfolio
  * Description: CSS file to manage the style for the pages.
  */
 
@@ -120,4 +120,49 @@ i.fa-chevron-right {
 #pageProjects img {
     min-height: 250px;
     max-height: 250px;
+}
+
+.project-container {
+    margin-top: 10px;
+}
+
+.project {
+  position: relative;
+}
+
+.image {
+  display: block;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  height:0;
+  transition: .5s ease;
+}
+
+.project:hover .overlay {
+  bottom: 0;
+  height: 100%;
+}
+
+.text {
+  /*white-space: nowrap; */
+  text-decoration: none;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.text a {
+    color: white;
 }

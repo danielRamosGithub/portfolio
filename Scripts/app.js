@@ -1,7 +1,7 @@
 /*
  * App.js
  * Author: Daniel Costa Ramos - 200354269
- * Web	site: Mini-Portfolio
+ * Web	site: Portfolio
  * Description: JavaScript file to inject and control the content from the pages.
  */
 "use strict"; 

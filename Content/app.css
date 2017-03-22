@@ -117,11 +117,6 @@ i.fa-chevron-right {
     margin-bottom: 70px;
 }
 
-#pageProjects img {
-    min-height: 250px;
-    max-height: 250px;
-}
-
 .project-container {
     margin-top: 10px;
 }
@@ -131,6 +126,8 @@ i.fa-chevron-right {
 }
 
 .image {
+  min-height: 250px;
+  max-height: 250px;
   display: block;
   height: auto;
 }

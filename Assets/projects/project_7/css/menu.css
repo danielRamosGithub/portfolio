@@ -1,0 +1,172 @@
+/* STEP 12: Move CSS to external file */
+@charset "UTF-8";
+/* Based on the simple and elegant tutorial by Mat Helme at http://blog.teamtreehouse.com/create-an-absolute-basic-mobile-css-responsive-navigation-menu */
+body {
+    font: 100%/1.25 Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+a {
+    color: rgb(148,148,148);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Very basic image responsiveness */
+img {
+    width: 100%;
+}
+
+header {
+    background: #fff;
+    width: 100%;
+    height: 115px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: 4px solid #333;
+    z-index: 100;
+}
+
+/* Logo uses an image placeholder service - as we do with the featured image */
+#logo{
+    margin: 20px;
+    /*float: left;*/
+    width: 200px;
+    height: 40px;
+    background: url("http://placehold.it/200x40") no-repeat center;
+    display: block;
+}
+
+nav {
+    /*float: right;*/
+    /*margin: 20px;*/
+    margin-bottom: 0;
+}
+
+nav ul {
+    /*border: 1px solid red;*/
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-self: end;
+}
+
+/* Hide the hamburger menu icon button */
+#menu-icon {
+    display: none;
+}
+
+li {
+    display: inline-block;
+    position: relative;
+    margin-right: 0.5em;
+}
+
+li a {
+    display: block;
+    padding: 0.5em;
+    /*width: 100%;*/
+}
+
+a:hover {
+    background-color: #333;
+    color: white;
+}
+
+li:last-child {
+    margin-right: 0;
+}
+
+/* Navigation wayfinding - this class would be applied dynamically to the HTML */
+.current {
+    color: #333;
+}
+
+/* General content styling - nothing fancy here */
+main {
+    margin: 80px auto 40px;
+    max-width: 980px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 1em;
+    margin: 0;
+}
+
+h2 {
+    font-size: 2em;
+    color: #333;
+    margin: 20px 0 ;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+footer {
+    padding: 20px;
+    font-size: 0.7em;
+}
+/* STEP 2a: Build out media query to make navigation responsive */
+@media only screen and (max-width: 700px) {
+    header {
+        height: 76px;
+    }
+
+    #logo {
+        float: left;
+    }
+
+    nav {
+        float: right;
+        margin: 20px;
+    }
+
+    /* STEP 5: Make the menu button visible */
+    #menu-icon {
+        display: inline-block;
+        /* STEP 6: Style the button so it is more noticeable */
+        width: 40px;
+        height: 40px;
+        color: #333;
+        font-size: 35px;
+        text-align: center;
+    }
+    nav ul {
+        /* STEP 4: Hide the horizontal navigation list for small screens */
+        display: none;
+        /* STEP 8: Style the navigation menu such that it is now a box that sits just under the hamburger menu button */
+        position: absolute;
+        padding: 20px;
+        background-color: #fff;
+        border: 5px solid #333;
+        width: 35%;
+        top:60px;
+        right: 20px;
+    }
+    nav li {
+        /* STEP 9: Stack the navigation links vertically */
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    /* STEP 7: Reveal the navigation menu when the hamburger button is hovered over */
+    nav:hover ul {
+        display: block;
+    }
+    nav:hover ul a {
+        /* STEP 10: Make the links wider for greater accessibility with touch */
+        display: block;
+        width: 100%;
+        padding: 10px;
+    }
+    /* STEP 11: Adjust the color of the hamburger menu button on hover for better visual feedback */
+    nav:hover #menu-icon {
+        background-color: #333;
+        color: white;
+    }
+/* STEP 2b: Close out the media query */
+}

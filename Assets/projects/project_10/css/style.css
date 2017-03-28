@@ -1,0 +1,168 @@
+@charset "UTF-8";
+/* Base styles */
+body{
+    background: #999;
+    min-width: 480px;
+    color: #333;
+}
+#container {
+    width: 90%;
+    margin: 0 auto;
+}
+/* Header */
+header {
+    background: #ccc;
+    padding-top: 1em;
+}
+header nav {
+    overflow: hidden;
+}
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;	
+    float: left;
+    position: relative;
+    left: 50%;
+}
+header nav ul li {
+    float: left;
+    position: relative;	
+    right: 50%;
+    margin-left: 0.25em;
+    background:#ddd;
+}
+header nav a {
+    display: block;
+    padding: 1em;
+    color: #fff;
+    text-decoration: none;
+}
+header nav a:hover {
+    background: #eee;
+    background-color: rgba(238,238,238,0.5);
+    color: #000;
+}
+
+/* STEP 1: Persistent navigation styles (add the class "floater" to the NAV element to preview) */
+header nav.floater {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 65%;
+    background-color: black;
+    background-color: rgba(0,0,0,0.5);
+}
+header nav.floater ul li {
+    background-color: transparent;
+}
+
+/* Content */
+div#content {
+    background: white;
+    clear: both;
+    line-height: 1.4;
+    padding: 1em 0;
+}
+div#content p {
+    margin-top: 0;
+}
+
+/* Header typography */
+header h1 {
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 400%;
+    margin: 0.5em;
+    text-shadow: 3px 3px 0 #333;
+    letter-spacing: -0.1em;
+    text-align: center;
+}
+header h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+header h1.floater-h1 {
+    position: fixed;
+    font-size: 1.1em;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 35%;
+    background-color: black;
+    background-color: rgba(0,0,0,0.5);
+    padding: 0.7em 0 0.8em 0;
+}
+
+/* STEP 4 - pullquote styles */
+/* Pullquotes */
+.pullquote2 {
+    display: block;
+    float: left;
+    padding: 0 0 0 10px;
+    margin: 0 15px 10px 0;
+    width: 40%;
+    font-size: 1.5em;
+    line-height: 1.4em;
+    text-align: left;
+    color: #666;
+    border-left: 3px solid #ccc;
+}
+/* STEP 5 - leading quotation marks */
+.pullquote2:before {
+    display: block;
+    content: "\201C";
+    font-size: 70px;
+    float: left;
+    position: relative;
+    top: 0.1em;
+    color: #7a7a7a;
+}
+
+.pullquote2:after {
+    display: block;
+    content: "\201D";
+    font-size: 70px;
+    float: right;
+    position: relative;
+    top: 0.15em;
+    color: #7a7a7a;
+}
+
+footer {
+    /* base styles */
+    background: #ccc;
+    padding: 1em;
+}
+footer h3 {
+    /* base styles */
+    margin: 0;
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 200%;
+    margin: 0.5em;
+    color: white;
+    text-shadow: 3px 3px 0 #333;
+    letter-spacing: -0.05em;
+    text-align: center;
+}
+footer p {
+    font-size: 50%;
+    text-align: center;
+}
+footer a {
+    color: black;
+}
+/* STEP 6b - sticky footer button styles */
+footer p a.top {
+    position: fixed;
+    bottom: 1.5em;
+    right: 1.5em;
+    background-color: black;
+    background-color: rgba(0,0,0,0.3);
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* hide back to top button by default */
+    display: none;
+}

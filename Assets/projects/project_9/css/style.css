@@ -1,0 +1,115 @@
+/* safe area */
+.safe-area {
+    height: 100vh;
+    background-color: #fcdb00;
+    padding-top: 1rem;
+}
+
+/* header */
+.header {
+    height: 60px;
+}
+
+.nav-link {
+    color: black;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+/* global texts */
+.headline {
+    font-size: 2rem;
+}
+
+.description {
+    font-size: 1.3rem;
+}
+
+.text {
+    font-size: 0.85rem;
+    color: #898989;
+}
+
+/* Carousel*/
+.carousel-inner {
+    margin-top: 3rem;
+    height: 650px;
+}
+
+.wrapper-carousel {
+    margin-top: 4rem;
+    padding-right: 7rem;
+}
+
+.carousel-item .text {
+    color: #555555;
+}
+
+/* feature */
+.feature {
+    padding: 5rem 0;
+}
+
+.feature .row {
+    padding-top: 5rem;
+}
+
+.feature .feature-item {
+    padding: 0 2rem;
+}
+
+.feature .feature-item .fa {
+    position: absolute;
+    left: 0;
+}
+
+.feature .feature-item .feature-heading {
+    margin-left: 2rem;
+}
+
+.feature .feature-item .feature-heading .headline {
+    font-size: 1.5rem;
+}
+
+/* footer */
+.footer {
+    background-color: black;
+    padding: 5rem 0;
+}
+
+.footer .headline {
+    color: #fcdb00;
+}
+
+.footer .description {
+    color: #898989;
+}
+
+.footer .btn-warning {
+    background-color: #fcdb00;
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.footer .btn-warning:hover {
+    cursor: pointer;
+}
+
+.footer form {
+    margin: 4rem 0;
+}
+
+.footer .nav {
+    margin-top: 5rem;
+}
+.footer .nav-link {
+    color: white;
+    padding: 0;
+    font-weight: normal;
+}

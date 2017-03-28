@@ -1,0 +1,2 @@
+amarelo #fcdb00
+text #898989

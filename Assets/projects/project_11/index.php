@@ -30,7 +30,7 @@ catch(PDOException $e)
 //     echo $e->getMessage();
 // }
 
-mysqli_close($conn);
+$conn = null;
 ?>
 <html lang="en">
     <head>

@@ -32,6 +32,13 @@ echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 $query = "INSERT INTO user (id_user, name_user, password_user) VALUES (1, 'daniel', 'daniel')";
 mysqli_query($dbc, $query);
 
+try {
+    $sql = "INSERT INTO user (id_user, name_user, password_user) VALUES (1, 'daniel', 'daniel')";
+    $sth = $conn->query($sql);
+} catch(PDOException $e) {
+    echo $e->getMessage();
+}
+
 mysqli_close($link);
 ?>
 <html lang="en">

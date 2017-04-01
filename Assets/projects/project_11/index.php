@@ -2,7 +2,7 @@
 
 <?php
 $connectstr_dbhost = '';
-$connectstr_dbname = 'assignment2_iwp';
+$connectstr_dbname = '';
 $connectstr_dbusername = '';
 $connectstr_dbpassword = '';
 
@@ -17,9 +17,7 @@ foreach ($_SERVER as $key => $value) {
     $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 }
 
-echo "database:" . $connectstr_dbname;
-
-$link = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname);
+$link = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,'assignment2_iwp');
 
 if (!$link) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -28,8 +26,8 @@ if (!$link) {
     exit;
 }
 
-// echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
-// echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
+echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
+echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
 try {
     $sql = "INSERT INTO user (id_user, name_user, password_user) VALUES (1, 'daniel', 'daniel')";

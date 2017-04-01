@@ -3,24 +3,32 @@
 <?php
 require_once('connectVars-azure.php');
 
-$link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+// $link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-if (!$link) {
-    echo "Error: Unable to connect to MySQL." . PHP_EOL;
-    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-    exit;
-}
-
-echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
-echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
+// if (!$link) {
+//     echo "Error: Unable to connect to MySQL." . PHP_EOL;
+//     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+//     echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+//     exit;
+// }
 
 try {
-    $sql = "INSERT INTO user (user_id, user_name, user_password) VALUES (1, 'daniel', 'daniel')";
-    $sth = $link->query($sql);
-} catch(PDOException $e) {
-    echo $e->getMessage();
-}
+    $conn = new PDO("mysql:host=DB_HOST;dbname=DB_NAME", DB_USER, DB_PASSWORD);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully"; 
+    }
+catch(PDOException $e)
+    {
+    echo "Connection failed: " . $e->getMessage();
+    }
+
+// try {
+//     $sql = "INSERT INTO user (user_id, user_name, user_password) VALUES (1, 'daniel', 'daniel')";
+//     $sth = $link->query($sql);
+// } catch(PDOException $e) {
+//     echo $e->getMessage();
+// }
 
 mysqli_close($link);
 ?>

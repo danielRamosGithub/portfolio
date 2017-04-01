@@ -2,7 +2,7 @@
 
 <?php
 $connectstr_dbhost = '';
-$connectstr_dbname = '';
+$connectstr_dbname = 'assignment2_iwp';
 $connectstr_dbusername = '';
 $connectstr_dbpassword = '';
 

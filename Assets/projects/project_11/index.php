@@ -29,6 +29,9 @@ if (!$link) {
 echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
 echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
+$query = "INSERT INTO user (id_user, name_user, password_user) VALUES (1, 'daniel', 'daniel')";
+mysqli_query($dbc, $query);
+
 mysqli_close($link);
 ?>
 <html lang="en">

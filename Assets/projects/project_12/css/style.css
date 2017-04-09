@@ -46,11 +46,6 @@ nav li a:hover {
     color: #2a363b;
 }
 
-nav li a:selected {
-    background-color: white;
-    color: #2a363b;
-}
-
 nav ul li ul {
     display: none;
 }

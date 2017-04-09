@@ -12,15 +12,15 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+header {
+    background-color: #e84a5f;
+    color: #fecea8;
+    text-align: center;
+}
+
 @media only screen and (min-width: 961px) {
     /* Header */
-    header {
-        background-color: #e84a5f;
-        color: #fecea8;
-    }
     header h1, header  p {
-        /*outline: 1px solid red;*/
-        text-align: center;
         margin: 0;
         padding: 15px;
     }
@@ -170,9 +170,6 @@ body{
     /* Header */
     header {
         width: 30%;
-        text-align: center;
-        background-color: #e84a5f;
-        color: #fecea8;
         position: fixed;
         height: 100%;
     }
@@ -291,9 +288,6 @@ body{
 @media only screen and (max-width: 480px) {
     /* Header */
     header {
-        text-align: center;
-        background-color: #e84a5f;
-        color: #fecea8;
         width: 100%;
     }
 

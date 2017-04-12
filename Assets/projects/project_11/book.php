@@ -89,6 +89,8 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <strong>Sucess! ' .$msg. '</strong>
                 </div>';
+            // close connection to the database
+            mysqli_close($dbc);
             echo '<meta http-equiv="refresh" content="2;index.php">';
         } else {
             // setting the insert query
@@ -104,9 +106,9 @@
                     <a href="index.php" class="alert-link">Click here to check the library!</a>
                 </div>';
             // echo '<meta http-equiv="refresh" content="3;login.php">';
+            // close connection to the database
+            mysqli_close($dbc);
         }
-        // close connection to the database
-        mysqli_close($dbc);
     }
     
 ?>

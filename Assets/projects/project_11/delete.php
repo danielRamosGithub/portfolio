@@ -43,5 +43,9 @@
     $data = mysqli_query($dbc, $query);
 ?>
 <html lang="en">
-    
+    <head></head>
+
+    <body>
+        
+    </body>
 </html>

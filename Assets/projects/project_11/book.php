@@ -12,8 +12,6 @@
     // if the user is trying to edit the information from a book.
     if (isset($_GET["book_id"])) {
 
-        // turn the flag variable true
-        $_SESSION['editing'] = 1;
         // setting the select query
         $query = "SELECT * FROM books WHERE book_id = '".$_GET['book_id']."'";
 
@@ -32,6 +30,8 @@
             $store_link = $row['book_store_link'];
 
             $_SESSION['book_id'] = $book_id;
+            // turn the flag variable true
+            $_SESSION['editing'] = 1;
         } else {
             $msg = "Something wrong happened!!!";
             echo '
@@ -60,7 +60,6 @@
         // grabing the book id from the session;
         $book_id = $_SESSION['book_id'];
 
-        echo 'Editing variable: ' .$editing . ' book id: '. $book_id. '<\br>';
         // grab the info from the FORM
         $book_title = mysqli_real_escape_string($dbc, trim($_POST['book_title']));
         $book_genre = mysqli_real_escape_string($dbc, trim($_POST['book_genre']));

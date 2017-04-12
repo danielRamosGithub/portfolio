@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-    // require_once('connectVars-azure.php');
-    require_once('connectVars-localhost.php');
+    require_once('connectVars-azure.php');
+    // require_once('connectVars-localhost.php');
 
     // start the session
     session_start();

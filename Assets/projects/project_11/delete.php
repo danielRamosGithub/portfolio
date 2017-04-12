@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php 
     session_start();
-    // require_once('connectVars-azure.php');
-    require_once('connectVars-localhost.php');
+    require_once('connectVars-azure.php');
+    // require_once('connectVars-localhost.php');
 
     $msg = "";
 

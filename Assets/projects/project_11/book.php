@@ -9,41 +9,41 @@
     // connect to the database
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-    // if the user is trying to edit the information from a book.
-    if (isset($_GET["book_id"])) {
+    // // if the user is trying to edit the information from a book.
+    // if (isset($_GET["book_id"])) {
 
-        // setting the select query
-        $query = "SELECT * FROM books WHERE book_id = '".$_GET['book_id']."'";
+    //     // setting the select query
+    //     $query = "SELECT * FROM books WHERE book_id = '".$_GET['book_id']."'";
 
-        $data = mysqli_query($dbc, $query);
+    //     $data = mysqli_query($dbc, $query);
 
-        // setting the book info on the specific variables
-        if (mysqli_num_rows($data) == 1) {
-            $row = mysqli_fetch_array($data);
-            // declaring the variables
-            $book_id = $row['book_id'];
-            $book_title = $row['book_title']; 
-            $book_genre = $row['book_genre']; 
-            $review = $row['book_review']; 
-            $reviewer = $row['book_review_person'];
-            $reviewer_email = $row['review_person_email'];
-            $store_link = $row['book_store_link'];
+    //     // setting the book info on the specific variables
+    //     if (mysqli_num_rows($data) == 1) {
+    //         $row = mysqli_fetch_array($data);
+    //         // declaring the variables
+    //         $book_id = $row['book_id'];
+    //         $book_title = $row['book_title']; 
+    //         $book_genre = $row['book_genre']; 
+    //         $review = $row['book_review']; 
+    //         $reviewer = $row['book_review_person'];
+    //         $reviewer_email = $row['review_person_email'];
+    //         $store_link = $row['book_store_link'];
 
-            $_SESSION['book_id'] = $book_id;
-            // turn the flag variable true
-            $_SESSION['editing'] = 1;
-        } else {
-            $msg = "Something wrong happened!!!";
-            echo '
-                <div class="alert alert-danger alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong>Sucess! ' .$msg. '</strong>
-                    <a href="index.php" class="alert-link">Click here to check the go back to the library!</a>
-                </div>';
-        }
-    } else {
-        $_SESSION['book_id'] = "";
-        $_SESSION['editing'] = 0;
+    //         $_SESSION['book_id'] = $book_id;
+    //         // turn the flag variable true
+    //         $_SESSION['editing'] = 1;
+    //     } else {
+    //         $msg = "Something wrong happened!!!";
+    //         echo '
+    //             <div class="alert alert-danger alert-dismissible" role="alert">
+    //                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    //                 <strong>Sucess! ' .$msg. '</strong>
+    //                 <a href="index.php" class="alert-link">Click here to check the go back to the library!</a>
+    //             </div>';
+    //     }
+    // } else {
+        // $_SESSION['book_id'] = "";
+        // $_SESSION['editing'] = 0;
         // declaring the variables
         $book_title = ""; 
         $book_genre = ""; 
@@ -51,15 +51,15 @@
         $reviewer = "";
         $reviewer_email = "";
         $store_link = "";
-    }
+    // }
 
-    echo "session: ". $_SESSION['editing'];
+    // echo "session: ". $_SESSION['editing'];
     // saving ou editin the data from a book.
     if(isset($_POST['submit'])) {
 
-        $editing = $_SESSION['editing'];
-        // grabing the book id from the session;
-        $book_id = $_SESSION['book_id'];
+        // $editing = $_SESSION['editing'];
+        // // grabing the book id from the session;
+        // $book_id = $_SESSION['book_id'];
 
         // grab the info from the FORM
         $book_title = mysqli_real_escape_string($dbc, trim($_POST['book_title']));
@@ -69,24 +69,24 @@
         $review = mysqli_real_escape_string($dbc, trim($_POST['review']));
         $store_link = mysqli_real_escape_string($dbc, trim($_POST['store_link']));
         
-        echo 'variavel editing' . $editing;
-        if ($editing == 1) {
-            // setting the update query
-            $query = "UPDATE books set book_title='$book_title', book_genre='$book_genre', book_review='$review', book_review_person='$reviewer', review_person_email='$reviewer_email', book_store_link='$store_link' WHERE book_id='$book_id'";
+        // echo 'variavel editing' . $editing;
+        // if ($editing == 1) {
+        //     // setting the update query
+        //     $query = "UPDATE books set book_title='$book_title', book_genre='$book_genre', book_review='$review', book_review_person='$reviewer', review_person_email='$reviewer_email', book_store_link='$store_link' WHERE book_id='$book_id'";
 
-            // executing the query
-            mysqli_query($dbc, $query);
+        //     // executing the query
+        //     mysqli_query($dbc, $query);
             
-            $msg = "You succesfully edit the information for this book.";
-            echo '
-                <div class="alert alert-success alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong>Sucess! ' .$msg. '</strong>
-                </div>';
-            // close connection to the database
-            mysqli_close($dbc);
-            echo '<meta http-equiv="refresh" content="2;index.php">';
-        } else {
+        //     $msg = "You succesfully edit the information for this book.";
+        //     echo '
+        //         <div class="alert alert-success alert-dismissible" role="alert">
+        //             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        //             <strong>Sucess! ' .$msg. '</strong>
+        //         </div>';
+        //     // close connection to the database
+        //     mysqli_close($dbc);
+        //     echo '<meta http-equiv="refresh" content="2;index.php">';
+        // } else {
             // setting the insert query
             $query = "INSERT INTO books (book_title, book_genre, book_review, book_review_person, review_person_email, book_store_link) VALUES ('$book_title', '$book_genre', '$review', '$reviewer', '$reviewer_email', '$store_link')";
             // execute the query
@@ -102,7 +102,7 @@
             // echo '<meta http-equiv="refresh" content="3;login.php">';
             // close connection to the database
             mysqli_close($dbc);
-        }
+        // }
     }
     
 ?>

@@ -9,7 +9,6 @@
     // connect to the database
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-    echo $dbc;
     // if the user is trying to edit the information from a book.
     if (isset($_GET["book_id"])) {
 

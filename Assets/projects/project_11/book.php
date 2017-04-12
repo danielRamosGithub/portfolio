@@ -48,7 +48,7 @@
 
         echo 'teste para novo livro';
 
-        $_SESSION['book_id'] = "";
+        // $_SESSION['book_id'] = "";
         $_SESSION['editing'] = 0;
         // declaring the variables
         $book_title = ""; 
@@ -62,13 +62,11 @@
     // saving ou editin the data from a book.
     if(isset($_POST['submit'])) {
 
-        echo 'submeteu o form';
+        echo 'submeteu o form <\br>';
 
         $editing = $_SESSION['editing'];
-        // grabing the book id from the session;
-        $book_id = $_SESSION['book_id'];
 
-        echo $editing . ' book id: '. $book_id;
+        echo 'Editing variable: ' .$editing . ' book id: '. $book_id. '<\br>';
         // grab the info from the FORM
         $book_title = mysqli_real_escape_string($dbc, trim($_POST['book_title']));
         $book_genre = mysqli_real_escape_string($dbc, trim($_POST['book_genre']));
@@ -79,6 +77,10 @@
         
         echo 'variavel editing' . $editing;
         if ($editing == 1) {
+
+            // grabing the book id from the session;
+            $book_id = $_SESSION['book_id'];
+            
             // setting the update query
             $query = "UPDATE books set book_title='$book_title', book_genre='$book_genre', book_review='$review', book_review_person='$reviewer', review_person_email='$reviewer_email', book_store_link='$store_link' WHERE book_id='$book_id'";
 

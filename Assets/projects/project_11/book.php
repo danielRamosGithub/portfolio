@@ -53,11 +53,11 @@
         $store_link = "";
     }
 
+    echo "session: ". $_SESSION['editing'];
     // saving ou editin the data from a book.
     if(isset($_POST['submit'])) {
 
         $editing = $_SESSION['editing'];
-        echo "session: ". $_SESSION['editing'];
         // grabing the book id from the session;
         $book_id = $_SESSION['book_id'];
 

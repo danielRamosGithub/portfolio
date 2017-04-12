@@ -81,7 +81,7 @@
             $query = "UPDATE books set book_title='$book_title', book_genre='$book_genre', book_review='$review', book_review_person='$reviewer', review_person_email='$reviewer_email', book_store_link='$store_link' WHERE book_id='$book_id'";
 
             // executing the query
-            // mysqli_query($dbc, $query);
+            mysqli_query($dbc, $query);
             
             $msg = "You succesfully edit the information for this book.";
             echo '
@@ -94,7 +94,7 @@
             // setting the insert query
             $query = "INSERT INTO books (book_title, book_genre, book_review, book_review_person, review_person_email, book_store_link) VALUES ('$book_title', '$book_genre', '$review', '$reviewer', '$reviewer_email', '$store_link')";
             // execute the query
-            // mysqli_query($dbc, $query);
+            mysqli_query($dbc, $query);
 
             $msg = "You created a new book in the library.";
             echo '

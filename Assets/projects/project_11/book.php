@@ -9,8 +9,11 @@
     // connect to the database
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
+    echo $dbc;
     // if the user is trying to edit the information from a book.
     if (isset($_GET["book_id"])) {
+
+        echo 'test if edit';
         // turn the flag variable true
         $_SESSION['editing'] = 1;
         // setting the select query
@@ -31,6 +34,8 @@
             $store_link = $row['book_store_link'];
 
             $_SESSION['book_id'] = $book_id;
+
+            echo 'teste se edit e o id do book' . $_SESSION['book_id'];
         } else {
             $msg = "Something wrong happened!!!";
             echo '
@@ -41,6 +46,9 @@
                 </div>';
         }
     } else {
+
+        echo 'teste para novo livro';
+
         $_SESSION['book_id'] = "";
         $_SESSION['editing'] = 0;
         // declaring the variables
@@ -54,6 +62,9 @@
 
     // saving ou editin the data from a book.
     if(isset($_POST['submit'])) {
+
+        echo 'submeteu o form';
+
         $editing = $_SESSION['editing'];
         // grabing the book id from the session;
         $book_id = $_SESSION['book_id'];
@@ -65,12 +76,13 @@
         $review = mysqli_real_escape_string($dbc, trim($_POST['review']));
         $store_link = mysqli_real_escape_string($dbc, trim($_POST['store_link']));
         
+        echo 'variavel editing' . $editing;
         if ($editing == 1) {
             // setting the update query
             $query = "UPDATE books set book_title='$book_title', book_genre='$book_genre', book_review='$review', book_review_person='$reviewer', review_person_email='$reviewer_email', book_store_link='$store_link' WHERE book_id='$book_id'";
 
             // executing the query
-            mysqli_query($dbc, $query);
+            // mysqli_query($dbc, $query);
             
             $msg = "You succesfully edit the information for this book.";
             echo '
@@ -83,7 +95,7 @@
             // setting the insert query
             $query = "INSERT INTO books (book_title, book_genre, book_review, book_review_person, review_person_email, book_store_link) VALUES ('$book_title', '$book_genre', '$review', '$reviewer', '$reviewer_email', '$store_link')";
             // execute the query
-            mysqli_query($dbc, $query);
+            // mysqli_query($dbc, $query);
 
             $msg = "You created a new book in the library.";
             echo '

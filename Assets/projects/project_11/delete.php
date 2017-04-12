@@ -43,29 +43,5 @@
     $data = mysqli_query($dbc, $query);
 ?>
 <html lang="en">
-    <head>
-        <title>Assingment 2 - Intro to web programming</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-           
-        </header>
-
-        <main>
-            <div class="container">
-                
-            </div> <!-- div container -->
-        </main>
-
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/dropdown.js"></script>
-        <script src="js/app.js"></script>
-    </body>
+    
 </html>

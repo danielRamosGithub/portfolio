@@ -96,7 +96,13 @@
             // setting the insert query
             $query = "INSERT INTO books (book_title, book_genre, book_review, book_review_person, review_person_email, book_store_link) VALUES ('$book_title', '$book_genre', '$review', '$reviewer', '$reviewer_email', '$store_link')";
             // execute the query
-            mysqli_query($dbc, $query);
+            $status = mysqli_query($dbc, $query);
+
+            if($status) {
+                echo 'funcionou';
+            } else {
+                echo 'merda';
+            }
 
             $msg = "You created a new book in the library.";
             echo '

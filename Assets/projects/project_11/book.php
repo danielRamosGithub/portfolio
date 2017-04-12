@@ -67,6 +67,8 @@
         $editing = $_SESSION['editing'];
         // grabing the book id from the session;
         $book_id = $_SESSION['book_id'];
+
+        echo $editing . ' book id: '. $book_id;
         // grab the info from the FORM
         $book_title = mysqli_real_escape_string($dbc, trim($_POST['book_title']));
         $book_genre = mysqli_real_escape_string($dbc, trim($_POST['book_genre']));

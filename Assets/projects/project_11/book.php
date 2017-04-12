@@ -101,7 +101,7 @@
             if($status) {
                 echo 'funcionou';
             } else {
-                echo 'merda';
+                echo mysqli_error($dbc);
             }
 
             $msg = "You created a new book in the library.";

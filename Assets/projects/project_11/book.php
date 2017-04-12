@@ -45,12 +45,12 @@
         // $_SESSION['book_id'] = "";
         // $_SESSION['editing'] = 0;
         // declaring the variables
-        $book_title = ""; 
-        $book_genre = ""; 
-        $review = ""; 
-        $reviewer = "";
-        $reviewer_email = "";
-        $store_link = "";
+        // $book_title = ""; 
+        // $book_genre = ""; 
+        // $review = ""; 
+        // $reviewer = "";
+        // $reviewer_email = "";
+        // $store_link = "";
     // }
 
     // echo "session: ". $_SESSION['editing'];
@@ -103,12 +103,19 @@
             // close connection to the database
             mysqli_close($dbc);
         // }
+
+        $book_title = ""; 
+        $book_genre = ""; 
+        $review = ""; 
+        $reviewer = "";
+        $reviewer_email = "";
+        $store_link = "";
     }
     
 ?>
 <html lang="en">
     <head>
-        <title>Assingment 2 - Intro to web programming</title>
+        <title>Book Lovers</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<link href="css/normalize.css" rel="stylesheet">-->

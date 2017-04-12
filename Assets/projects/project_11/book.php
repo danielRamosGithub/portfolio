@@ -12,7 +12,6 @@
     // if the user is trying to edit the information from a book.
     if (isset($_GET["book_id"])) {
 
-        echo 'test if edit';
         // turn the flag variable true
         $_SESSION['editing'] = 1;
         // setting the select query
@@ -33,8 +32,6 @@
             $store_link = $row['book_store_link'];
 
             $_SESSION['book_id'] = $book_id;
-
-            echo 'teste se edit e o id do book' . $_SESSION['book_id'];
         } else {
             $msg = "Something wrong happened!!!";
             echo '
@@ -45,10 +42,7 @@
                 </div>';
         }
     } else {
-
-        echo 'teste para novo livro';
-
-        // $_SESSION['book_id'] = "";
+        $_SESSION['book_id'] = "";
         $_SESSION['editing'] = 0;
         // declaring the variables
         $book_title = ""; 
@@ -62,9 +56,9 @@
     // saving ou editin the data from a book.
     if(isset($_POST['submit'])) {
 
-        echo 'submeteu o form <\br>';
-
         $editing = $_SESSION['editing'];
+        // grabing the book id from the session;
+        $book_id = $_SESSION['book_id'];
 
         echo 'Editing variable: ' .$editing . ' book id: '. $book_id. '<\br>';
         // grab the info from the FORM
@@ -77,10 +71,6 @@
         
         echo 'variavel editing' . $editing;
         if ($editing == 1) {
-
-            // grabing the book id from the session;
-            $book_id = $_SESSION['book_id'];
-            
             // setting the update query
             $query = "UPDATE books set book_title='$book_title', book_genre='$book_genre', book_review='$review', book_review_person='$reviewer', review_person_email='$reviewer_email', book_store_link='$store_link' WHERE book_id='$book_id'";
 
@@ -101,12 +91,6 @@
             $query = "INSERT INTO books (book_title, book_genre, book_review, book_review_person, review_person_email, book_store_link) VALUES ('$book_title', '$book_genre', '$review', '$reviewer', '$reviewer_email', '$store_link')";
             // execute the query
             $status = mysqli_query($dbc, $query);
-
-            if($status) {
-                echo 'funcionou';
-            } else {
-                echo mysqli_error($dbc);
-            }
 
             $msg = "You created a new book in the library.";
             echo '

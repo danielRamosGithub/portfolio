@@ -16,7 +16,7 @@
     $query = "SELECT * FROM books WHERE book_id = '".$_GET['book_id']."'";
 
     $data = mysqli_query($dbc, $query);
-
+    
     // setting the book info on the specific variables
     if (mysqli_num_rows($data) == 1) {
         $row = mysqli_fetch_array($data);
@@ -57,15 +57,16 @@
             mysqli_close($dbc);
             echo '<meta http-equiv="refresh" content="1;index.php">';
         }
-    } else {
-        $msg = "Something wrong happened!!!";
-        echo '
-            <div class="alert alert-danger alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Sucess! ' .$msg. '</strong>
-                <a href="index.php" class="alert-link">Click here to check the go back to the library!</a>
-            </div>';
-    }
+    } 
+    // else {
+    //     $msg = "Something wrong happened!!!";
+    //     echo '
+    //         <div class="alert alert-danger alert-dismissible" role="alert">
+    //             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    //             <strong>Sucess! ' .$msg. '</strong>
+    //             <a href="index.php" class="alert-link">Click here to check the go back to the library!</a>
+    //         </div>';
+    // }
     
 ?>
 <html lang="en">

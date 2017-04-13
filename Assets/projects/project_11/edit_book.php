@@ -10,19 +10,17 @@
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
     // if the user is trying to edit the information from a book.
-    $book_id = $_GET["book_id"];
+    $_SESSION["book_id"] = $_GET["book_id"];
 
     // setting the select query
     $query = "SELECT * FROM books WHERE book_id = '".$_GET['book_id']."'";
 
     $data = mysqli_query($dbc, $query);
 
-    echo mysqli_num_rows($data);
     // setting the book info on the specific variables
     if (mysqli_num_rows($data) == 1) {
         $row = mysqli_fetch_array($data);
         // declaring the variables
-        $book_id = $row['book_id'];
         $book_title = $row['book_title']; 
         $book_genre = $row['book_genre']; 
         $review = $row['book_review']; 
@@ -32,6 +30,8 @@
 
 
         if(isset($_POST['submit'])) {
+
+            $book_id = $_SESSION["book_id"];
 
             // grab the info from the FORM
             $book_title = mysqli_real_escape_string($dbc, trim($_POST['book_title']));
@@ -55,7 +55,7 @@
                 </div>';
             // close connection to the database
             mysqli_close($dbc);
-            // echo '<meta http-equiv="refresh" content="1;index.php">';
+            echo '<meta http-equiv="refresh" content="1;index.php">';
         }
     } else {
         $msg = "Something wrong happened!!!";

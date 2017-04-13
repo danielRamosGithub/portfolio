@@ -27,7 +27,7 @@
         $reviewer = $row['book_review_person'];
         $reviewer_email = $row['review_person_email'];
         $store_link = $row['book_store_link'];
-
+        echo "entrou!!!";
     } 
     else {
         $msg = "Something wrong happened!!!";

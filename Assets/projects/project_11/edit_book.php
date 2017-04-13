@@ -28,11 +28,11 @@
         $reviewer_email = $row['review_person_email'];
         $store_link = $row['book_store_link'];
 
-
+        echo "session antes do submit ". $_SESSION["book_id"];
         if(isset($_POST['submit'])) {
 
             $book_id = $_SESSION["book_id"];
-
+            echo "session depois do submit ". $_SESSION["book_id"];
             // grab the info from the FORM
             $book_title = mysqli_real_escape_string($dbc, trim($_POST['book_title']));
             $book_genre = mysqli_real_escape_string($dbc, trim($_POST['book_genre']));

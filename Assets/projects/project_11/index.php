@@ -13,7 +13,7 @@
 ?>
 <html lang="en">
     <head>
-        <title>Assingment 2 - Intro to web programming</title>
+        <title>Book Lovers</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<link href="css/normalize.css" rel="stylesheet">-->
@@ -80,7 +80,7 @@
                                     if(isset($_SESSION['user_id'])) {
                                         echo '
                                               <a class="btn btn-info" href="book_info.php?book_id=' .$row['book_id']. '" role="button">More Info</a>
-                                              <a class="btn btn-warning" href="book.php?book_id=' .$row['book_id']. '" role="button">Edit</a>
+                                              <a class="btn btn-warning" href="edit_book.php?book_id=' .$row['book_id']. '" role="button">Edit</a>
                                               <a class="btn btn-danger" href="delete.php?book_id=' .$row['book_id']. '" role="button">Delete</a>
                                              ';
                                     } else {
@@ -98,7 +98,7 @@
                 </div>
                 <div class="row">
                     <p>Help our library grow. Click on the button bellow to add a new book.</p>
-                    <a class="btn btn-primary" href="book.php" role="button">Add Book</a>
+                    <a class="btn btn-primary" href="new_book.php" role="button">Add Book</a>
                 </div>
             </div> <!-- div container -->
 

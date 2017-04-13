@@ -43,9 +43,22 @@
     $data = mysqli_query($dbc, $query);
 ?>
 <html lang="en">
-    <head></head>
+    <head>
+        <title>Book Lovers</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<link href="css/normalize.css" rel="stylesheet">-->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
 
     <body>
-        
+        <script src="js/jquery.min.js"></script>
+        <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/dropdown.js"></script>
+        <script src="js/app.js"></script>
     </body>
 </html>

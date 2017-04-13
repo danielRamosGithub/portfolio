@@ -12,13 +12,12 @@
     // if the user is trying to edit the information from a book.
     $book_id = $_GET["book_id"];
 
-    echo $book_id;
-
     // setting the select query
     $query = "SELECT * FROM books WHERE book_id = '".$_GET['book_id']."'";
 
     $data = mysqli_query($dbc, $query);
 
+    echo mysqli_num_rows($data);
     // setting the book info on the specific variables
     if (mysqli_num_rows($data) == 1) {
         $row = mysqli_fetch_array($data);

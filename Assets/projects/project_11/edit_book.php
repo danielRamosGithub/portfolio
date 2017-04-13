@@ -18,7 +18,7 @@
     $data = mysqli_query($dbc, $query);
     
     // setting the book info on the specific variables
-    if (mysqli_num_rows($data) = 1) {
+    if (mysqli_num_rows($data) == 1) {
         $row = mysqli_fetch_array($data);
         // declaring the variables
         $book_title = $row['book_title']; 

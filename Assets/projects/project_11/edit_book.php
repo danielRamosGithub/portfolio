@@ -28,45 +28,45 @@
         $reviewer_email = $row['review_person_email'];
         $store_link = $row['book_store_link'];
 
-        echo "session antes do submit ". $_SESSION["book_id"];
-        if(isset($_POST['submit'])) {
-
-            $book_id = $_SESSION["book_id"];
-            echo "session depois do submit ". $_SESSION["book_id"];
-            // grab the info from the FORM
-            $book_title = mysqli_real_escape_string($dbc, trim($_POST['book_title']));
-            $book_genre = mysqli_real_escape_string($dbc, trim($_POST['book_genre']));
-            $reviewer = mysqli_real_escape_string($dbc, trim($_POST['reviewer']));
-            $reviewer_email = mysqli_real_escape_string($dbc, trim($_POST['reviewer_email']));
-            $review = mysqli_real_escape_string($dbc, trim($_POST['review']));
-            $store_link = mysqli_real_escape_string($dbc, trim($_POST['store_link']));
-            
-            // setting the update query
-            $query = "UPDATE books set book_title='$book_title', book_genre='$book_genre', book_review='$review', book_review_person='$reviewer', review_person_email='$reviewer_email', book_store_link='$store_link' WHERE book_id='$book_id'";
-
-            // executing the query
-            mysqli_query($dbc, $query);
-            
-            $msg = "You succesfully edit the information for this book.";
-            echo '
-                <div class="alert alert-success alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong>Sucess! ' .$msg. '</strong>
-                </div>';
-            // close connection to the database
-            mysqli_close($dbc);
-            echo '<meta http-equiv="refresh" content="1;index.php">';
-        }
     } 
-    // else {
-    //     $msg = "Something wrong happened!!!";
-    //     echo '
-    //         <div class="alert alert-danger alert-dismissible" role="alert">
-    //             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    //             <strong>Sucess! ' .$msg. '</strong>
-    //             <a href="index.php" class="alert-link">Click here to check the go back to the library!</a>
-    //         </div>';
-    // }
+    else {
+        $msg = "Something wrong happened!!!";
+        echo '
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>' .$msg. '</strong>
+                <a href="index.php" class="alert-link">Click here to check the go back to the library!</a>
+            </div>';
+    }
+
+    if(isset($_POST['submit'])) {
+
+        $book_id = $_SESSION["book_id"];
+        echo "session depois do submit ". $_SESSION["book_id"];
+        // grab the info from the FORM
+        $book_title = mysqli_real_escape_string($dbc, trim($_POST['book_title']));
+        $book_genre = mysqli_real_escape_string($dbc, trim($_POST['book_genre']));
+        $reviewer = mysqli_real_escape_string($dbc, trim($_POST['reviewer']));
+        $reviewer_email = mysqli_real_escape_string($dbc, trim($_POST['reviewer_email']));
+        $review = mysqli_real_escape_string($dbc, trim($_POST['review']));
+        $store_link = mysqli_real_escape_string($dbc, trim($_POST['store_link']));
+        
+        // setting the update query
+        $query = "UPDATE books set book_title='$book_title', book_genre='$book_genre', book_review='$review', book_review_person='$reviewer', review_person_email='$reviewer_email', book_store_link='$store_link' WHERE book_id='$book_id'";
+
+        // executing the query
+        mysqli_query($dbc, $query);
+        
+        $msg = "You succesfully edit the information for this book.";
+        echo '
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Sucess! ' .$msg. '</strong>
+            </div>';
+        // close connection to the database
+        mysqli_close($dbc);
+        echo '<meta http-equiv="refresh" content="1;index.php">';
+    }
     
 ?>
 <html lang="en">

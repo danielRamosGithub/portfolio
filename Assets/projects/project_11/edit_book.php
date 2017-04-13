@@ -9,40 +9,40 @@
     // connect to the database
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-    // if the user is trying to edit the information from a book.
-    $_SESSION["book_id"] = $_GET["book_id"];
+    if(isset($_GET["book_id"])) {
+        $_SESSION["book_id"] = $_GET["book_id"];
 
-    // setting the select query
-    $query = "SELECT * FROM books WHERE book_id = '".$_GET['book_id']."'";
+        // setting the select query
+        $query = "SELECT * FROM books WHERE book_id = '".$_GET['book_id']."'";
 
-    $data = mysqli_query($dbc, $query);
-    
-    // setting the book info on the specific variables
-    if (mysqli_num_rows($data) == 1) {
-        $row = mysqli_fetch_array($data);
-        // declaring the variables
-        $book_title = $row['book_title']; 
-        $book_genre = $row['book_genre']; 
-        $review = $row['book_review']; 
-        $reviewer = $row['book_review_person'];
-        $reviewer_email = $row['review_person_email'];
-        $store_link = $row['book_store_link'];
-        echo "entrou!!!";
-    } 
-    else {
-        $msg = "Something wrong happened!!!";
-        echo '
-            <div class="alert alert-danger alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>' .$msg. '</strong>
-                <a href="index.php" class="alert-link">Click here to check the go back to the library!</a>
-            </div>';
+        $data = mysqli_query($dbc, $query);
+        
+        // setting the book info on the specific variables
+        if (mysqli_num_rows($data) == 1) {
+            $row = mysqli_fetch_array($data);
+            // declaring the variables
+            $book_title = $row['book_title']; 
+            $book_genre = $row['book_genre']; 
+            $review = $row['book_review']; 
+            $reviewer = $row['book_review_person'];
+            $reviewer_email = $row['review_person_email'];
+            $store_link = $row['book_store_link'];
+        } 
+        else {
+            $msg = "Something wrong happened!!!";
+            echo '
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>' .$msg. '</strong>
+                    <a href="index.php" class="alert-link">Click here to check the go back to the library!</a>
+                </div>';
+        }
     }
 
     if(isset($_POST['submit'])) {
 
         $book_id = $_SESSION["book_id"];
-        echo "session depois do submit ". $_SESSION["book_id"];
+        echo 'Book Id: '.$book_id;
         // grab the info from the FORM
         $book_title = mysqli_real_escape_string($dbc, trim($_POST['book_title']));
         $book_genre = mysqli_real_escape_string($dbc, trim($_POST['book_genre']));
@@ -65,7 +65,7 @@
             </div>';
         // close connection to the database
         mysqli_close($dbc);
-        echo '<meta http-equiv="refresh" content="1;index.php">';
+        // echo '<meta http-equiv="refresh" content="1;index.php">';
     }
     
 ?>

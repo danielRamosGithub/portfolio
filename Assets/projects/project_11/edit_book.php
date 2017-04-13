@@ -9,8 +9,37 @@
     // connect to the database
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-    // saving the data from a book.
+    // if the user is trying to edit the information from a book.
+    $book_id = $_GET["book_id"];
+
+    // setting the select query
+    $query = "SELECT * FROM books WHERE book_id = '".$_GET['book_id']."'";
+
+    $data = mysqli_query($dbc, $query);
+
+    // setting the book info on the specific variables
+    if (mysqli_num_rows($data) == 1) {
+        $row = mysqli_fetch_array($data);
+        // declaring the variables
+        $book_id = $row['book_id'];
+        $book_title = $row['book_title']; 
+        $book_genre = $row['book_genre']; 
+        $review = $row['book_review']; 
+        $reviewer = $row['book_review_person'];
+        $reviewer_email = $row['review_person_email'];
+        $store_link = $row['book_store_link'];
+    } else {
+        $msg = "Something wrong happened!!!";
+        echo '
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Sucess! ' .$msg. '</strong>
+                <a href="index.php" class="alert-link">Click here to check the go back to the library!</a>
+            </div>';
+    }
+
     if(isset($_POST['submit'])) {
+
         // grab the info from the FORM
         $book_title = mysqli_real_escape_string($dbc, trim($_POST['book_title']));
         $book_genre = mysqli_real_escape_string($dbc, trim($_POST['book_genre']));
@@ -19,28 +48,21 @@
         $review = mysqli_real_escape_string($dbc, trim($_POST['review']));
         $store_link = mysqli_real_escape_string($dbc, trim($_POST['store_link']));
         
-        // setting the insert query
-        $query = "INSERT INTO books (book_title, book_genre, book_review, book_review_person, review_person_email, book_store_link) VALUES ('$book_title', '$book_genre', '$review', '$reviewer', '$reviewer_email', '$store_link')";
-        // execute the query
-        $status = mysqli_query($dbc, $query);
+        // setting the update query
+        $query = "UPDATE books set book_title='$book_title', book_genre='$book_genre', book_review='$review', book_review_person='$reviewer', review_person_email='$reviewer_email', book_store_link='$store_link' WHERE book_id='$book_id'";
 
-        $msg = "You created a new book in the library.";
+        // executing the query
+        mysqli_query($dbc, $query);
+        
+        $msg = "You succesfully edit the information for this book.";
         echo '
             <div class="alert alert-success alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <strong>Sucess! ' .$msg. '</strong>
-                <a href="index.php" class="alert-link">Click here to check the library!</a>
             </div>';
-        // echo '<meta http-equiv="refresh" content="3;login.php">';
         // close connection to the database
         mysqli_close($dbc);
-
-        $book_title = ""; 
-        $book_genre = ""; 
-        $review = ""; 
-        $reviewer = "";
-        $reviewer_email = "";
-        $store_link = "";
+        echo '<meta http-equiv="refresh" content="1;index.php">';
     }
     
 ?>

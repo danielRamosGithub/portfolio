@@ -43,7 +43,7 @@
 
 <html lang="en">
     <head>
-        <title>Assingment 2 - Intro to web programming</title>
+        <title>Book Lovers</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<link href="css/normalize.css" rel="stylesheet">-->
